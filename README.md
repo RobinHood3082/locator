@@ -41,7 +41,7 @@ locator.RegisterFactory(sl, func() *MyService {
 #### Retrieving Services
 To retrieve an instance of the requested type:
 ```go
-instance, err := servicelocator.GetMyService
+instance, err := locator.Get[MyService](sl)
 if err != nil {
     // handle error
 }
