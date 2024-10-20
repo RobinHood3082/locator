@@ -85,6 +85,11 @@ type lazySingleton[T any] struct {
 
 // getInstance returns the singleton instance, creating it if necessary
 func (ls *lazySingleton[T]) getInstance(sl *ServiceLocator) (T, error) {
+	if ls.provider == nil {
+		var zero T
+		return zero, fmt.Errorf("no provider registered for type %T", ls.instance)
+	}
+
 	ls.once.Do(func() {
 		ls.instance = ls.provider()
 		sl.mu.Lock()
