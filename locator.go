@@ -2,6 +2,7 @@ package locator
 
 import (
 	"fmt"
+	"reflect"
 	"sync"
 )
 
@@ -96,5 +97,5 @@ func (ls *lazySingleton[T]) getInstance(sl *ServiceLocator) (T, error) {
 // getTypeKey returns a unique key for type T
 func getTypeKey[T any]() any {
 	var zero T
-	return fmt.Sprintf("%T", zero)
+	return reflect.TypeOf(zero)
 }
