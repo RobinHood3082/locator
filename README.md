@@ -1,4 +1,4 @@
-# Service Locator
+# Locator
 
 The Service Locator pattern is implemented in this Go package to manage service registration and retrieval. This package allows you to register services as singletons, lazy singletons, or factories, and retrieve them as needed.
 
