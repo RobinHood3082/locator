@@ -1,4 +1,4 @@
-package servicelocator
+package locator
 
 import (
 	"fmt"
