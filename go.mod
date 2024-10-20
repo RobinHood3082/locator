@@ -1,3 +1,3 @@
 module github.com/RobinHood3082/locator
 
-go 1.23.2
+go 1.20
