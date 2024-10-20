@@ -229,7 +229,11 @@ func TestConcurrentAccess(t *testing.T) {
 		return &AnotherTestService{ID: 1}
 	})
 	var factoryCounter int
+	var mu sync.Mutex
+
 	locator.RegisterFactory(sl, func() int {
+		mu.Lock()
+		defer mu.Unlock()
 		factoryCounter++
 		return factoryCounter
 	})
